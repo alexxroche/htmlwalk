@@ -1,0 +1,3 @@
+we are failing to clear the "parent_tag" and that is inserting stuff
+we also need to ensure that we are decrementing the depth, as that is now used as an index to navigate the html_vec of tags
+

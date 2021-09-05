@@ -1,0 +1,51 @@
+/# remove the blank space from the start of $(htmlwalk img src)
+
+/# surpress 
+/Parse errors:
+/    Unexpected token
+/    Unexpected token
+/# unless -v flag
+
+# comapare with html2xpath {
+
+# how do we get <a><img /> this img</a> when html5ever sees the <img /> as a separate node (which we did not "technically" request
+
+# <a href="#test1">How do we get the anchor text?</a>
+    a.contents: Vec<node>    // seems idiomatic rust
+    a.string: Option<String> //BeautifulSoup style
+    a.text: String           // seems the easiest (BeautifulSoup treats this as "all the UTF8 of inner_html that isn't html"
+    a text: String           // seems the easiest
+    a.inner_html: Vec<node>  // should this be an option?
+
+#
+https://example.com/with/path?id=found&do=it#NOW
+html2xpath index.html img
+<img alt="test me" class="center head_img" src="/img/blank.gif" />
+
+}
+
+# if the user specifies an #id or .class then they want the enture node (because why give them the same data that they already have?)
+
+FIX_THIS() {
+
+# GOOD:working as desired
+html2xpath 2.html a
+<a href="this_must_include_the_img"> Something <img alt="foo" src="html2xpath/can/see/this?can_you" /> also this <br /> and <hr /> that </a>
+
+
+# BAD: horrible. 1. spurious trailing tags; 2. missing <img> <br> <hr>
+htmlwalk 2.html a
+<a href="this_must_include_the_img"> Something\n</a>
+\nalso this </a>
+\nand </a>
+ that\n</a>
+
+}
+
+fix_sub_tags() {
+# can find sub tags
+html2xpath 2.html a img src
+
+# can't find sub tags, let alone attr within sub-tags
+htmlwalk 2.html a img
+
