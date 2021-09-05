@@ -1,3 +1,9 @@
 we are failing to clear the "parent_tag" and that is inserting stuff
 we also need to ensure that we are decrementing the depth, as that is now used as an index to navigate the html_vec of tags
 
+Maybe we should be using https://github.com/shepmaster/sxd-xpath or just hack https://github.com/mgdm/htmlq to match our syntax
+
+`htmlq -f test.html img -a src` is very similar to our needs
+`htmlq -f test.html a -a href` has the functionality, but with additional flags, that we want to be able to infer from the limited HTML tags and attributes.
+
+
