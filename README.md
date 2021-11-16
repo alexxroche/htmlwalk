@@ -10,15 +10,18 @@ or cat file.html | htmlwalk [ tag[.class] || tag[#id] || .class || #id ] [ attr=
 e.g. `echo '<a>this bit</a>' | htmlwalk f.html a text` => this bit
 
 Example usages:
+```txt
     htmlwalk index.html a href => [https://example.com/, https://example.com/menu, ... ]
     htmlwalk index.html img.icon src => https://example.com/img/icon.png
     htmlwalk index.html div#footer a#contact txt => Contact
     htmlwalk index.html name="sought"  [<a name="sought" href="/sought_link/">You want this!</a>, <div name="sought">foo</div>, ... ]
+```
 
     # it is possible to drill down into a tag-within-a-tag
     htmlwalk index.html div#about a href => /about.html 
 
 If you want to drill down by tag THEN by attribute:  htmlwalk index.html body div a class="hidden"
+
 If you want to drill down by tag AND attribute:  htmlwalk index.html body.show div#about a.hidden
 
 By attaching the attribute to its tag we can change the sequential processing.
