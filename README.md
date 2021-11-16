@@ -14,7 +14,7 @@ Example usages:
     htmlwalk index.html a href => [https://example.com/, https://example.com/menu, ... ]
     htmlwalk index.html img.icon src => https://example.com/img/icon.png
     htmlwalk index.html div#footer a#contact txt => Contact
-    htmlwalk index.html name="sought"  [<a name="sought" href="/sought_link/">You want this!</a>, <div name="sought">foo</div>, ... ]
+    htmlwalk index.html name="sought" => [<a name="sought" href="/sought_link/">You want this!</a>, <div name="sought">foo</div>, ... ]
 ```
 
     # it is possible to drill down into a tag-within-a-tag
