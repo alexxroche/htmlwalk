@@ -7,7 +7,7 @@ or cat file.html | htmlwalk [ tag[.class] || tag[#id] || .class || #id ] [ attr=
 ```
 
 "text" indicates that the text link that is displayed for an anchor is desired. 
-e.g. echo '<a>this bit</a>' | htmlwalk f.html a text => this bit
+e.g. `echo '<a>this bit</a>' | htmlwalk f.html a text` => this bit
 
 Example usages:
     htmlwalk index.html a href => [https://example.com/, https://example.com/menu, ... ]
